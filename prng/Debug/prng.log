@@ -1,0 +1,22 @@
+﻿  prng.cpp
+D:\cpp_projects\prng\prng\prng.cpp(99,27): warning C4018: <: несоответствие типов со знаком и без знака
+D:\cpp_projects\prng\prng\prng.cpp(122,31): warning C4018: <: несоответствие типов со знаком и без знака
+D:\cpp_projects\prng\prng\prng.cpp(203,22): warning C4018: <: несоответствие типов со знаком и без знака
+D:\cpp_projects\prng\prng\prng.cpp(258,33): warning C4244: аргумент: преобразование "__int64" в "const unsigned int", возможна потеря данных
+D:\cpp_projects\prng\prng\prng.cpp(259,37): warning C4244: аргумент: преобразование "__int64" в "const unsigned int", возможна потеря данных
+D:\cpp_projects\prng\prng\prng.cpp(366,27): warning C4018: <: несоответствие типов со знаком и без знака
+D:\cpp_projects\prng\prng\prng.cpp(390,16): warning C4244: инициализация: преобразование "__int64" в "int", возможна потеря данных
+D:\cpp_projects\prng\prng\prng.cpp(392,21): warning C4244: аргумент: преобразование "__int64" в "const unsigned int", возможна потеря данных
+D:\cpp_projects\prng\prng\prng.cpp(392,34): warning C4244: аргумент: преобразование "__int64" в "const unsigned int", возможна потеря данных
+D:\cpp_projects\prng\prng\prng.cpp(453,43): warning C4244: аргумент: преобразование "__int64" в "unsigned int", возможна потеря данных
+D:\cpp_projects\prng\prng\prng.cpp(453,69): warning C4244: аргумент: преобразование "__int64" в "unsigned int", возможна потеря данных
+D:\cpp_projects\prng\prng\prng.cpp(453,95): warning C4244: аргумент: преобразование "__int64" в "unsigned int", возможна потеря данных
+D:\cpp_projects\prng\prng\prng.cpp(482,18): warning C4244: инициализация: преобразование "double" в "int", возможна потеря данных
+D:\cpp_projects\prng\prng\prng.cpp(485,23): warning C4018: <: несоответствие типов со знаком и без знака
+D:\cpp_projects\prng\prng\prng.cpp(508,27): warning C4018: <: несоответствие типов со знаком и без знака
+D:\cpp_projects\prng\prng\prng.cpp(518,27): warning C4018: <: несоответствие типов со знаком и без знака
+D:\cpp_projects\prng\prng\prng.cpp(525,27): warning C4018: <: несоответствие типов со знаком и без знака
+D:\cpp_projects\prng\prng\prng.cpp(590,27): warning C4018: <: несоответствие типов со знаком и без знака
+D:\cpp_projects\prng\prng\prng.cpp(648,24): warning C4244: инициализация: преобразование "double" в "int", возможна потеря данных
+D:\cpp_projects\prng\prng\prng.cpp(649,35): warning C4244: аргумент: преобразование "__int64" в "int", возможна потеря данных
+  prng.vcxproj -> D:\cpp_projects\prng\Debug\prng.exe

@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LocalDebuggerCommandArguments>/n:16000 /g:add /i:8001,18,65,816,159,798,290,168,441,691,655,874,220,125,977,586,381,868,294,948,437,581,181,701,536,11,672,103,601,794,189,12,130,386,828,288,183,117,456,624,807,110,498,27,234,474,613,615,341,906,562,778,486,155,276,894,441,226,762,234,762,98,458,399,445,765,223 /f:prngTestAdd.txt</LocalDebuggerCommandArguments>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+  </PropertyGroup>
+</Project>
