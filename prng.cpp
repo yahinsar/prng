@@ -228,7 +228,6 @@ int powmod(int x, int e, int n) {
     return x;
 }
 
-
 long long nod(long long x, long long y) {
     while (x != y) {
         if (x > y) {
@@ -312,18 +311,18 @@ deque <bool> gen_p_lc(int p) {
     return ps;
 }
 
-
 void helpFunc() {
-    cout << "Введена команда c /h. Допустимые параметры:";
-    cout << "\n\n/g:<код_метода> - параметр указывает на метод генерации ПСЧ, при этом код_метода может быть одним из следующих:\n";
-    cout << "\n  lc – линейный конгруэнтный метод (Вход: модуль, множитель, приращение, начальное значение);\n  add – аддитивный метод (Вход: модуль, младший индекс, старший индекс, последовательность начальных значений);\n  5p – пятипараметрический метод (Вход: p, q1, q2, q3, w);\n  lfsr – регистр сдвига с обратной связью (РСЛОС) (Вход: двоичное представление вектора коэффициентов, начальное значение регистра);\n  nfsr – нелинейная комбинация РСЛОС (Вход: двоичное представление векторов коэффициентов для R1, R2, R3);\n  mt – вихрь Мерсенна (Вход: модуль, начальное значение x);\n  rc4 – RC4 (Вход: 256 начальных значений);\n  rsa – ГПСЧ на основе RSA (Вход: модуль n, число e, начальное значение x; e удовлетворяет условиям: 1 < e < (p-1)(q-1), НОД(e, (p-1)(q-1)) = 1, где p*q=n. x из интервала [1,n]);\n  bbs – алгоритм Блюма-Блюма-Шуба (Вход: Начальное значение x (взаимно простое с n));\n";
-    cout << "\n\n/i:<число> - инициализационный вектор генератора.";
-    cout << "\n\n/n:<длина> - количество генерируемых чисел. Если параметр не указан, - генерируется 10000 чисел.";
-    cout << "\n\n/f:<полное_имя_файла> - полное имя файла, в который будут выводиться данные. Если параметр не указан, данные должны записываться в файл с именем rnd.dat.";
-    cout << "\n\n/h – информация о допустимых параметрах командной строки программы.\n";
+    cout << "The command with /h is introduced. Permissible parameters:";
+    cout << "\n\n/g:<method_code> - the parameter specifies the method of DRB generation, where the method_code can be one of the following:\n";
+    cout << "\n  lc - linear congruent method (Input: module, multiplier, increment, initial value);\n add - additive method (Input: module, low index, high index, sequence of initial values);\n 5p - five-parameter method (Input: p, q1, q2, q3, w);\n lfsr - Linear-feedback shift register (LFSR) (Input: binary representation of the coefficient vector, initial value of the register);\n nfsr - non-linear combination of LFSR (Input: binary representation of the coefficient vectors for R1, R2, R3);\n mt - Mersenne vortex (Input: module, initial value of x);\n rc4 - RC4 (Input: 256 initial values);\n rsa - RSA-based PRNG (Input: module n, number e, initial value of x; e satisfies conditions: 1 < e < (p-1)(q-1), NOD(e, (p-1)(q-1)) = 1, where p*q=n. x from the interval [1,n]);\n bbs - Blum-Blum-Schube algorithm (Input: Initial value of x (mutually prime with n));\n";
+    cout << "\n\n/i:<number> - initialization vector of the generator.";
+    cout << "\n\n/n:<length> - the number of generated numbers. If the parameter is not specified - 10000 numbers are generated.";
+    cout << "\n\n/f:<full_file_name> - full name of the file in which the data will be output. If the parameter is not specified, the data should be written to the file named rnd.dat.";
+    cout << "\n\n/h - information about the allowed command line parameters of the program.\n";
+
 }
 
-//Линейный конгруэнтный метод
+// Linear congruent method
 void lcFunc(string codeMethod, vector <int> genVec, int NumCount, const char* fileName, bool defaultVec) {
     long long m = 12960;
     long long a = 1741;
@@ -370,9 +369,9 @@ void lcFunc(string codeMethod, vector <int> genVec, int NumCount, const char* fi
     return;
 }
 
-//Аддитивный ГСПЧ
+// Additive method
 void addFunc(string codeMethod, vector <int> genVec, int NumCount, const char* fileName, bool defaultVec) {
-    //Вход: модуль, младший индекс, старший индекс, последовательность начальных значений
+    // Input: module, low index, high index, sequence of initial values
     long long m = 8001;
     long long k = 18;
     long long j = 65;
@@ -392,7 +391,7 @@ void addFunc(string codeMethod, vector <int> genVec, int NumCount, const char* f
     }
 
     if (k < 1 || k >= j || j < 1) {
-        cout << "\nОшибка. Параметры не соответствуют требованиям.\n";
+        cout << "\nError. The parameters do not meet the requirements.\n";
         return;
     }
 
@@ -403,7 +402,7 @@ void addFunc(string codeMethod, vector <int> genVec, int NumCount, const char* f
     f.open(fileName, ios::out);
     long long maxkj = max(k, j);
     if (xNs.size() < maxkj) {
-        cout << "\nОшибка. Параметры не соответствуют требованиям (Переданных начальных значений не хватает).\n";
+        cout << "\nError. The parameters do not meet the requirements (The transferred initial values are insufficient).\n";
         return;
     }
     for (int i = maxkj + 1; i < NumCount + maxkj + 1; i++)
@@ -424,9 +423,9 @@ void addFunc(string codeMethod, vector <int> genVec, int NumCount, const char* f
     return;
 }
 
-//Пятипараметрический метод
+// Five-parameter method
 void fivePFunc(string codeMethod, vector <int> genVec, int NumCount, const char* fileName, bool defaultVec) {
-    //Вход: p, q1, q2, q3, w
+    // Input: p, q1, q2, q3, w
     int p = 4253;
     long long q1 = 1093;
     long long q2 = 2254;
@@ -441,7 +440,7 @@ void fivePFunc(string codeMethod, vector <int> genVec, int NumCount, const char*
     }
 
     if (q1 >= p || q2 >= p || q3 >= p) {
-        cout << "\nОшибка. Параметры не соответствуют требованиям.\n";
+        cout << "\nError. The parameters do not meet the requirements.\n";
         return;
     }
 
@@ -477,9 +476,9 @@ void fivePFunc(string codeMethod, vector <int> genVec, int NumCount, const char*
     return;
 }
 
-//РСЛОС
+// Linear-feedback shift register (LFSR)
 void lfsrFunc(string codeMethod, vector <int> genVec, int NumCount, const char* fileName, bool defaultVec) {
-    //Вход: двоичное представление вектора коэффициентов, начальное значение регистра
+    // Input: binary representation of the coefficient vector, initial value of the register
     if (defaultVec) {
         genVec = { 121, 14, 5, 3, 1, 0 }; // x0, coeffs (100000000101011)
     }
@@ -495,7 +494,7 @@ void lfsrFunc(string codeMethod, vector <int> genVec, int NumCount, const char* 
         }
     }
     if (x0 < 0) {
-        cout << "\nОшибка. Параметры не соответствуют требованиям.\n";
+        cout << "\nError. The parameters do not meet the requirements.\n";
         return;
     }
 
@@ -546,9 +545,9 @@ void lfsrFunc(string codeMethod, vector <int> genVec, int NumCount, const char* 
     return;
 }
 
-// нелинейная комбинация РСЛОС
+// Non-linear combination of LFSR
 void nfsrFunc(string codeMethod, vector <int> genVec, int NumCount, const char* fileName, vector <deque <bool>> nfsrRegs, bool defaultVec) {
-    //Вход: двоичное представление векторов коэффициентов для R1, R2, R3
+    // Input: binary representation of the coefficient vectors for R1, R2, R3
     if (defaultVec) {
         genVec = { 5, 14, 4, 3, 1, 0, 3, 15, 1, 0, 5, 16, 5, 3, 2, 0 }; // size1,coeffs1,size2,coeffs2,size3,coeffs3 (100000000011011,1000000000000011,10000000000101101)
         nfsrRegs = { {1,0,0,0,0,0,0,0,0,0,1,1,0,1,1}, {1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1}, {1,0,0,0,0,0,0,0,0,0,0,1,0,1,1,0,1} };
@@ -612,9 +611,9 @@ void nfsrFunc(string codeMethod, vector <int> genVec, int NumCount, const char* 
     return;
 }
 
-//Вихрь Мерсенна
+// Mersenne vortex
 void mtFunc(string codeMethod, vector <int> genVec, int NumCount, const char* fileName, bool defaultVec) {
-    //Вход: модуль, начальное значение x
+    // Input: module, initial value of x
     int p = 624;
     int w = 32;
     //string uBin = "10000000000000000000000000000000";
@@ -682,9 +681,9 @@ void mtFunc(string codeMethod, vector <int> genVec, int NumCount, const char* fi
     return;
 }
 
-//RC4
+// RC4
 void rc4Func(string codeMethod, vector <int> genVec, int NumCount, const char* fileName, bool defaultVec) {
-    //Вход: 256 начальных значений
+    // Input: 256 initial values
     if (defaultVec) {
         genVec = { 802,720,341,337,961,882,417,785,198,727,899,372,374,425,556,615,813,768,840,183,893,568,73,387,18,436,182,125,806,899,485,607,619,825,944,579,707,360,363,904,87,262,276,460,687,831,75,499,599,915,681,492,483,754,878,500,189,60,624,994,959,109,600,577,934,544,156,640,903,519,544,990,781,819,449,468,650,524,967,248,438,647,739,920,400,617,419,588,676,43,581,634,151,181,211,84,724,367,723,627,886,267,617,667,85,65,134,735,589,100,983,26,747,721,945,147,337,364,734,13,406,315,647,556,496,858,640,220,224,362,847,110,629,463,776,713,528,909,448,116,9,430,141,755,151,86,901,488,449,635,500,855,950,147,410,446,4,49,665,227,411,511,336,39,974,112,752,501,21,200,617,29,629,757,784,779,843,684,266,292,319,766,146,269,912,556,714,916,605,378,142,15,889,478,54,862,590,806,363,610,5,979,638,634,736,421,413,578,105,679,869,424,444,14,692,356,569,405,271,173,783,413,188,671,891,242,533,480,48,895,89,53,873,727,686,608,147,98,185,252,776,54,675,220,67,366,576,636,771,846,808,553,259,996,224,149 };
     }
@@ -724,9 +723,9 @@ void rc4Func(string codeMethod, vector <int> genVec, int NumCount, const char* f
     return;
 }
 
-//ГПСЧ на основе RSA
+// RSA-based PRNG
 void rsaFunc(string codeMethod, vector <int> genVec, int NumCount, const char* fileName, bool defaultVec) {
-    //Вход: модуль n, число e, начальное значение x; e удовлетворяет условиям: 1 < e < (p-1)(q-1), НОД(e, (p-1)(q-1)) = 1, где p*q=n. x из интервала [1,n]
+    // Input: module n, number e, initial value of x; e satisfies conditions: 1 < e < (p-1)(q-1), NOD(e, (p-1)(q-1)) = 1, where p*q=n. x from the interval [1,n]
     if (defaultVec) {
         genVec = { 7191817, 151, 69 };
     }
@@ -736,7 +735,7 @@ void rsaFunc(string codeMethod, vector <int> genVec, int NumCount, const char* f
     int l = 20;
 
     if (e <= 1 || x < 1 || x > n - 1) {
-        cout << "\nОшибка. Параметры не соответствуют требованиям.\n";
+        cout << "\nError. The parameters do not meet the requirements.\n";
         return;
     }
 
@@ -770,9 +769,9 @@ void rsaFunc(string codeMethod, vector <int> genVec, int NumCount, const char* f
     return;
 }
 
-//Алгоритм Блюма-Блюма-Шуба
+// Blum-Blum-Schube algorithm
 void bbsFunc(string codeMethod, vector <int> genVec, int NumCount, const char* fileName, bool defaultVec) {
-    //Вход: Начальное значение x (взаимно простое с n)
+    // Input: Initial value of x (mutually prime with n)
     if (defaultVec) {
         genVec = { 8627 };
     }
@@ -781,7 +780,7 @@ void bbsFunc(string codeMethod, vector <int> genVec, int NumCount, const char* f
     int l = 10;
 
     if (nod(x0, n) != 1) {
-        cout << "\nПараметры не соответствуют требованиям (x и n не взаимно простые).\n";
+        cout << "\nThe parameters do not meet the requirements (x and n are not mutually prime).\n";
     }
 
     vector<int> showsVector = progressVector(NumCount);
