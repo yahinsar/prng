@@ -335,17 +335,17 @@ void lcFunc(string codeMethod, vector <int> genVec, int NumCount, const char* fi
         x0 = genVec[3];
     }
     if (m <= 0 || a > m || a < 0 || c > m || c < 0 || x0 > m || x0 < 0) {
-        cout << "\nОшибка. Параметры не соответствуют требованиям.\n";
+        cout << "\nError. The parameters do not meet the requirements.\n";
         return;
     }
     if (nod(c, m) != 1) {
-        cout << "\nПараметры не соответствуют требованиям теоремы 3.1 (Пункт 1).\n";
+        cout << "\nThe parameters do not meet the requirements of Theorem 3.1 (Item 1).\n";
     }
     if (!(kratP(a - 1, m))) {
-        cout << "\nПараметры не соответствуют требованиям теоремы 3.1 (Пункт 2).\n";
+        cout << "\nThe parameters do not meet the requirements of Theorem 3.1 (Item 2).\n";
     }
     if (m % 4 == 0 && (a - 1) % 4 != 0) {
-        cout << "\nПараметры не соответствуют требованиям теоремы 3.1 (Пункт 3).\n";
+        cout << "\nThe parameters do not meet the requirements of Theorem 3.1 (Item 3).\n";
     }
     vector<int> showsVector = progressVector(NumCount);
     int check_progress_index = 0;
